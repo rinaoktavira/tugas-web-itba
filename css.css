@@ -4,19 +4,22 @@
 * {
     margin: 0;
     padding: 0;
-    box-shadow: none;
-    border: 0;
     box-sizing: border-box;
 }
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Background gradasi tetap dipertahankan */
     background: linear-gradient(135deg, #f0f2f5 0%, #ffffff 100%);
     color: #333;
     line-height: 1.6;
+    
+    /* KUNCI POSISI TENGAH */
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column; /* Menyusun konten dari atas ke bawah */
+    justify-content: center; /* Tengah secara vertikal */
+    align-items: center;    /* Tengah secara horizontal */
+    
     min-height: 100vh;
     padding: 20px;
 }
@@ -25,14 +28,14 @@ body {
    Kartu Profil (Card Design) Modern
    ========================================= */
 .container {
-    background: rgba(255, 255, 255, 0.95); /* Efek Kaca */
+    background: rgba(255, 255, 255, 0.95); 
     max-width: 900px;
     width: 100%;
-    margin: auto;
-    padding: 50px;
+    /* Margin auto dihapus karena sudah diatur oleh body flex */
+    padding: 40px;
     border-radius: 20px;
     box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-    border-top: 8px solid #b30000; /* Garis aksen merah ITBA DCC */
+    border-top: 8px solid #b30000; 
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -55,15 +58,15 @@ body {
 }
 
 .logo-kampus {
-    width: 90px;
+    width: 80px;
     height: auto;
     filter: drop-shadow(0 4px 6px rgba(179,0,0,0.2));
 }
 
 .nama-kampus {
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     font-weight: 700;
-    color: #b30000; /* Merah ITBA DCC */
+    color: #b30000; 
     line-height: 1.3;
 }
 
@@ -84,17 +87,6 @@ body {
     border: 1px solid #eee;
     border-radius: 15px;
     margin-bottom: 35px;
-    position: relative;
-}
-
-.biodata::after {
-    content: '';
-    position: absolute;
-    bottom: -1px;
-    left: 20px;
-    right: 20px;
-    height: 1px;
-    background: #b30000; /* Aksen merah di bawah */
 }
 
 .biodata h2 {
@@ -115,11 +107,12 @@ body {
 }
 
 .status {
-    background: #eef2f3;
-    color: #333 !important;
-    padding: 6px 12px;
+    background: #fff0f0;
+    color: #b30000 !important;
+    padding: 6px 15px;
     border-radius: 20px;
     font-size: 0.9rem !important;
+    font-weight: 600;
     display: inline-block;
     margin-top: 10px;
 }
@@ -129,7 +122,7 @@ body {
    ========================================= */
 .dokumentasi h3 {
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     color: #444;
     margin-bottom: 25px;
 }
@@ -137,61 +130,71 @@ body {
 .media-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 25px;
+    gap: 20px;
 }
 
 .media-item {
     background: #fff;
-    padding: 15px;
+    padding: 10px;
     border-radius: 15px;
     border: 1px solid #eee;
-    transition: transform 0.2s ease, border-color 0.2s ease;
     text-align: center;
-}
-
-.media-item:hover {
-    transform: scale(1.02);
-    border-color: #b30000;
 }
 
 .foto-kerja, .video-kerja {
     width: 100%;
     border-radius: 10px;
-    height: 250px;
-    object-fit: cover; /* Mencegah foto/video gepeng */
+    height: 220px;
+    object-fit: cover;
 }
 
 .caption {
-    margin-top: 15px;
+    margin-top: 12px;
     font-weight: 600;
     color: #b30000;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
 }
 
 /* =========================================
-   Footer & Responsif
+   FOOTER (TULISAN DI BAWAH KOTAK)
    ========================================= */
 footer {
     text-align: center;
-    margin-top: 50px;
-    color: #aaa;
-    font-size: 0.8rem;
+    margin-top: 25px; /* Jarak dari kotak ke tulisan rani */
+    color: #777;
+    font-size: 0.85rem;
+    font-weight: 500;
 }
 
-/* Responsif untuk Smartphone */
+/* =========================================
+   Responsif untuk Smartphone
+   ========================================= */
 @media (max-width: 600px) {
-    .container {
-        padding: 25px;
+    body {
+        padding: 15px;
+        justify-content: flex-start; /* Agar di HP tidak terlalu ke tengah vertikal */
     }
+    
+    .container {
+        padding: 20px;
+    }
+    
     .header-kampus {
         flex-direction: column;
         gap: 15px;
         text-align: center;
+        padding: 20px 10px;
     }
+    
     .nama-kampus {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
     }
+    
     .media-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Foto & Video jadi susun ke bawah di HP */
+    }
+    
+    .foto-kerja, .video-kerja {
+        height: auto; /* Biar tidak gepeng di HP */
     }
 }
