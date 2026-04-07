@@ -95,4 +95,82 @@ body {
 
 .biodata p {
     font-size: 1.1rem;
-    margin
+    margin-bottom: 10px;
+}
+
+.biodata p strong {
+    color: #b30000;
+}
+
+.status {
+    background: #b30000;
+    color: #ffffff !important; /* Tulisan putih di kotak merah */
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-size: 0.9rem !important;
+    font-weight: 600;
+    display: inline-block;
+    box-shadow: 0 4px 10px rgba(179,0,0,0.2);
+}
+
+/* =========================================
+   Dokumentasi & Media
+   ========================================= */
+.media-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.media-item {
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.media-item:hover {
+    transform: scale(1.03); /* Efek membesar sedikit saat disentuh */
+}
+
+.foto-kerja, .video-kerja {
+    width: 100%;
+    border-radius: 15px;
+    height: 250px;
+    object-fit: cover;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.caption {
+    margin-top: 15px;
+    font-weight: 600;
+    color: #b30000;
+}
+
+/* =========================================
+   Footer (Di Bawah Kotak)
+   ========================================= */
+footer {
+    text-align: center;
+    margin: 40px 0; 
+    color: #666;
+    font-size: 0.85rem;
+    animation: fadeInUp 1.2s ease-out; /* Muncul sedikit lebih lambat */
+}
+
+/* =========================================
+   Responsif Smartphone
+   ========================================= */
+@media (max-width: 600px) {
+    body {
+        padding: 15px 10px;
+    }
+    .header-kampus {
+        flex-direction: column;
+        text-align: center;
+    }
+    .media-grid {
+        grid-template-columns: 1fr;
+    }
+    .nama-kampus {
+        font-size: 1.3rem;
+    }
+}
