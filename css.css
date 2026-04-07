@@ -13,176 +13,86 @@ body {
     color: #333;
     line-height: 1.6;
     
-    /* MODIFIKASI DI SINI AGAR MENEMPEL KE ATAS */
     display: flex;
     flex-direction: column; 
-    align-items: center;    /* Tetap di tengah secara horizontal */
-    justify-content: flex-start; /* Mengatur agar konten mulai dari atas (tidak ada jarak) */
+    align-items: center;    
+    justify-content: flex-start; 
     
     min-height: 100vh;
-    padding: 0; /* Menghapus padding agar benar-benar menempel ke pinggir layar */
+    padding: 20px; /* Memberi sedikit ruang agar lengkungan terlihat jelas */
 }
 
 /* =========================================
-   Kartu Profil (Card Design) Modern
+   Animasi Muncul (Fade In Up)
+   ========================================= */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================
+   Kartu Profil (Card Design) Elegan
    ========================================= */
 .container {
-    background: rgba(255, 255, 255, 0.95); 
-    max-width: 900px;
+    background: rgba(255, 255, 255, 0.98); 
+    max-width: 850px;
     width: 100%;
     padding: 40px;
     
-    /* Menghilangkan border-radius bagian atas jika ingin benar-benar menyatu dengan atas browser */
-    border-radius: 0 0 20px 20px; 
+    /* Kembalikan lengkungan di semua sisi */
+    border-radius: 25px; 
     
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    /* Shadow lebih tebal & elegan agar terlihat 'mengambang' */
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    
     border-top: 10px solid #b30000; 
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.container:hover {
-    transform: translateY(5px); /* Berubah arah hover-nya ke bawah sedikit */
-    box-shadow: 0 20px 45px rgba(0,0,0,0.15);
+    
+    /* Menambahkan Animasi saat halaman dibuka */
+    animation: fadeInUp 0.8s ease-out;
 }
 
 /* =========================================
-   Header: Logo & Nama Sejajar Modern
+   Header: Logo & Nama Sejajar
    ========================================= */
 .header-kampus {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 25px;
     margin-bottom: 30px;
     background: #fff9f9;
-    padding: 15px;
-    border-radius: 12px;
+    padding: 20px;
+    border-radius: 15px;
 }
 
 .logo-kampus {
     width: 80px;
     height: auto;
-    filter: drop-shadow(0 4px 6px rgba(179,0,0,0.2));
+    filter: drop-shadow(0 4px 8px rgba(179,0,0,0.3));
 }
 
 .nama-kampus {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: 700;
     color: #b30000; 
-    line-height: 1.3;
-}
-
-/* Garis Pembatas Halus */
-.garis-pembatas {
-    border: 0;
-    height: 1px;
-    background: linear-gradient(to right, #ffffff, #ddd, #ffffff);
-    margin: 25px 0;
 }
 
 /* =========================================
-   Biodata: Bersih & Beraksen
+   Biodata & Status
    ========================================= */
 .biodata {
     background: #ffffff;
     padding: 25px;
     border: 1px solid #eee;
     border-radius: 15px;
-    margin-bottom: 35px;
-}
-
-.biodata h2 {
-    font-size: 1.4rem;
-    color: #444;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
 }
 
 .biodata p {
     font-size: 1.1rem;
-    margin-bottom: 8px;
-    color: #555;
-}
-
-.biodata p strong {
-    color: #b30000;
-    margin-right: 5px;
-}
-
-.status {
-    background: #fff0f0;
-    color: #b30000 !important;
-    padding: 6px 15px;
-    border-radius: 20px;
-    font-size: 0.9rem !important;
-    font-weight: 600;
-    display: inline-block;
-    margin-top: 10px;
-}
-
-/* =========================================
-   Dokumentasi: Grid Modern
-   ========================================= */
-.dokumentasi h3 {
-    text-align: center;
-    font-size: 1.4rem;
-    color: #444;
-    margin-bottom: 25px;
-}
-
-.media-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-}
-
-.media-item {
-    background: #fff;
-    padding: 10px;
-    border-radius: 15px;
-    border: 1px solid #eee;
-    text-align: center;
-}
-
-.foto-kerja, .video-kerja {
-    width: 100%;
-    border-radius: 10px;
-    height: 220px;
-    object-fit: cover;
-}
-
-.caption {
-    margin-top: 12px;
-    font-weight: 600;
-    color: #b30000;
-    font-size: 0.9rem;
-}
-
-/* =========================================
-   FOOTER (TULISAN DI BAWAH KOTAK)
-   ========================================= */
-footer {
-    text-align: center;
-    margin: 30px 0; 
-    color: #777;
-    font-size: 0.85rem;
-    font-weight: 500;
-}
-
-/* =========================================
-   Responsif untuk Smartphone
-   ========================================= */
-@media (max-width: 600px) {
-    .container {
-        padding: 20px;
-        border-radius: 0; /* Di HP kotak full ke samping */
-    }
-    
-    .header-kampus {
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
-    }
-    
-    .media-grid {
-        grid-template-columns: 1fr;
-    }
-}
+    margin
